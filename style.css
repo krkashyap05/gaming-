@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: sans-serif;
+}
+
+#game-container {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    border: 2px solid #333;
+    background-color: #a2d2a2; /* A grassy green */
+    overflow: hidden;
+}
+
+#hero {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #4a90e2; /* A heroic blue */
+    border-radius: 50%;
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.trash {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #8b4513; /* A trashy brown */
+}
