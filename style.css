@@ -1,43 +1,94 @@
 body {
+    font-family: sans-serif;
+    background-color: #f0f0f0;
     margin: 0;
-    overflow: hidden;
+    padding: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-    font-family: sans-serif;
 }
 
-#game-container {
-    position: relative;
-    width: 800px;
-    height: 600px;
-    border: 2px solid #333;
-    background-color: #a2d2a2; /* A grassy green */
-    overflow: hidden;
+.container {
+    width: 100%;
+    max-width: 800px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-#hero {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background-color: #4a90e2; /* A heroic blue */
-    border-radius: 50%;
+h1 {
+    text-align: center;
+    color: #333;
 }
 
-#score {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #fff;
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-.trash {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background-color: #8b4513; /* A trashy brown */
+#youtube-url {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#get-info-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#get-info-btn:hover {
+    background-color: #45a049;
+}
+
+#video-info {
+    margin-top: 20px;
+}
+
+#video-title {
+    font-size: 20px;
+    color: #333;
+}
+
+#video-thumbnail {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+#download-options {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.hidden {
+    display: none;
+}
+
+#loader {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
 }

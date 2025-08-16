@@ -3,15 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eco Hero: City Saver</title>
+    <title>YouTube Downloader</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="game-container" tabindex="0">
-        <div id="hero"></div>
+    <div class="container">
+        <h1>YouTube Downloader</h1>
+        <div class="input-section">
+            <input type="text" id="youtube-url" placeholder="Enter YouTube URL">
+            <button id="get-info-btn">Get Video Info</button>
+        </div>
+        <div id="loader" class="hidden">Loading...</div>
+        <div id="video-info" class="hidden">
+            <h2 id="video-title"></h2>
+            <img id="video-thumbnail" src="" alt="Video Thumbnail">
+            <div id="download-options">
+                <h3>Video</h3>
+                <table id="video-formats"></table>
+                <h3>Audio</h3>
+                <table id="audio-formats"></table>
+            </div>
+        </div>
     </div>
-    <div id="score">Score: 0</div>
-
     <script src="script.js"></script>
 </body>
 </html>
