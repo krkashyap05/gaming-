@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YouTube Downloader</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
     <div class="container">
@@ -13,18 +13,16 @@
             <input type="text" id="youtube-url" placeholder="Enter YouTube URL">
             <button id="get-info-btn">Get Video Info</button>
         </div>
-        <div id="loader" class="hidden">Loading...</div>
+        <div id="loader" class="hidden"></div>
         <div id="video-info" class="hidden">
             <h2 id="video-title"></h2>
             <img id="video-thumbnail" src="" alt="Video Thumbnail">
             <div id="download-options">
-                <h3>Video</h3>
-                <table id="video-formats"></table>
-                <h3>Audio</h3>
-                <table id="audio-formats"></table>
+                <h3>Available Formats</h3>
+                <table id="formats-table"></table>
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="/static/script.js"></script>
 </body>
 </html>

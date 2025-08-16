@@ -5,8 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const videoInfoDiv = document.getElementById('video-info');
     const videoTitle = document.getElementById('video-title');
     const videoThumbnail = document.getElementById('video-thumbnail');
-    const videoFormatsTable = document.getElementById('video-formats');
-    const audioFormatsTable = document.getElementById('audio-formats');
+    const formatsTable = document.getElementById('formats-table');
 
     getInfoBtn.addEventListener('click', async () => {
         const url = youtubeUrlInput.value.trim();
@@ -17,8 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         loader.classList.remove('hidden');
         videoInfoDiv.classList.add('hidden');
-        videoFormatsTable.innerHTML = '';
-        audioFormatsTable.innerHTML = '';
+        formatsTable.innerHTML = '';
 
 
         try {
@@ -44,33 +42,19 @@ document.addEventListener('DOMContentLoaded', () => {
             videoThumbnail.src = data.thumbnail;
             videoInfoDiv.classList.remove('hidden');
 
-            // Populate video formats
-            let videoHtml = '<tr><th>Resolution</th><th>Extension</th><th>Video Codec</th><th>Audio Codec</th><th>Download</th></tr>';
+            // Populate formats table
+            let tableHtml = '<tr><th>Resolution</th><th>Extension</th><th>Video Codec</th><th>Audio Codec</th><th>Download</th></tr>';
             data.formats.forEach(format => {
-                const downloadUrl = `/download?url=${encodeURIComponent(url)}&format_id=${format.format_id}&title=${encodeURIComponent(data.title)}&ext=${format.ext}`;
-                videoHtml += `<tr>
+                const downloadUrl = `/download?url=${encodeURIComponent(url)}&format_id=${format.format_id}&title=${encodeURIComponent(data.title)}&ext=${format.ext}&id=${data.id}`;
+                tableHtml += `<tr>
                     <td>${format.resolution}</td>
                     <td>${format.ext}</td>
                     <td>${format.vcodec}</td>
-                    <td>${format.acodec || 'none'}</td>
-                    <td><a href="${downloadUrl}" target="_blank">Download</a></td>
-                </tr>`;
-            });
-            videoFormatsTable.innerHTML = videoHtml;
-
-            // Populate audio formats
-            let audioHtml = '<tr><th>Bitrate</th><th>Extension</th><th>Audio Codec</th><th>Download</th></tr>';
-            data.audio_formats.forEach(format => {
-                const downloadUrl = `/download?url=${encodeURIComponent(url)}&format_id=${format.format_id}&title=${encodeURIComponent(data.title)}&ext=${format.ext}`;
-                audioHtml += `<tr>
-                    <td>${format.abr} kbps</td>
-                    <td>${format.ext}</td>
                     <td>${format.acodec}</td>
                     <td><a href="${downloadUrl}" target="_blank">Download</a></td>
                 </tr>`;
             });
-            audioFormatsTable.innerHTML = audioHtml;
-
+            formatsTable.innerHTML = tableHtml;
 
         } catch (error) {
             loader.classList.add('hidden');
